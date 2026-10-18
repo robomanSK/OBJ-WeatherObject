@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="drawingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.weatherobject.HelloController">
+   <children>
+      <HBox prefHeight="84.0" prefWidth="600.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#addCloud" text="Pridať oblak" />
+            <Button mnemonicParsing="false" onAction="#addRaindrop" text="Pridať kvapku" />
+            <Button mnemonicParsing="false" onAction="#addSnowflake" text="Pridať snehovú vločku" />
+            <Button mnemonicParsing="false" onAction="#stopRain" text="Zastaviť dážď" />
+            <Button mnemonicParsing="false" onAction="#makeCloudsBlue" text="Modré oblaky" />
+            <Button mnemonicParsing="false" onAction="#moveAllObjectsLeft" text="Posunúť do lava" />
+         </children>
+      </HBox>
+   </children>
+</Pane>
