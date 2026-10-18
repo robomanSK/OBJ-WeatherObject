@@ -22,9 +22,6 @@ public class Cloud extends WeatherObject {
     ) {
         super(x, y, paneWidth, paneHeight);
 
-        /*
-         * Atribút je už inicializovaný až po zavolaní super().
-         */
         cloudGraphic = createGraphic(color);
         getChildren().add(cloudGraphic);
     }
@@ -62,9 +59,6 @@ public class Cloud extends WeatherObject {
     protected void update(double elapsedSeconds) {
         x += SPEED * elapsedSeconds;
 
-        /*
-         * Po opustení pravej strany sa oblak vráti zľava.
-         */
         if (x > paneWidth + 60) {
             x = -60;
         }

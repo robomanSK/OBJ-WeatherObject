@@ -28,9 +28,6 @@ public class Snowflake extends WeatherObject {
 
         initialX = x;
 
-        /*
-         * Grafika sa vytvára až po dokončení konštruktora rodiča.
-         */
         snowflakeGraphic = createGraphic(color);
         getChildren().add(snowflakeGraphic);
     }

@@ -23,9 +23,6 @@ public class HelloController {
 
     private boolean rainStopped = false;
 
-    /**
-     * Pridá oblak na náhodnú pozíciu v hornej časti plochy.
-     */
     @FXML
     private void addCloud() {
         double x = random.nextDouble() * PANE_WIDTH;
@@ -42,9 +39,6 @@ public class HelloController {
         addWeatherObject(cloud);
     }
 
-    /**
-     * Pridá dažďovú kvapku na náhodnú pozíciu.
-     */
     @FXML
     private void addRaindrop() {
         double x = random.nextDouble() * PANE_WIDTH;
@@ -61,9 +55,6 @@ public class HelloController {
         addWeatherObject(raindrop);
     }
 
-    /**
-     * Pridá snehovú vločku na náhodnú pozíciu.
-     */
     @FXML
     private void addSnowflake() {
         double x = random.nextDouble() * PANE_WIDTH;
@@ -80,9 +71,6 @@ public class HelloController {
         addWeatherObject(snowflake);
     }
 
-    /**
-     * Zastaví alebo znovu spustí všetky dažďové kvapky.
-     */
     @FXML
     private void stopRain() {
         rainStopped = !rainStopped;
@@ -98,9 +86,6 @@ public class HelloController {
         }
     }
 
-    /**
-     * Zmení farbu všetkých oblakov na modrú.
-     */
     @FXML
     private void makeCloudsBlue() {
         for (WeatherObject object : weatherObjects) {
@@ -110,9 +95,6 @@ public class HelloController {
         }
     }
 
-    /**
-     * Posunie všetky objekty na ploche o 20 px doľava.
-     */
     @FXML
     private void moveAllObjectsLeft() {
         for (WeatherObject object : weatherObjects) {
@@ -120,34 +102,22 @@ public class HelloController {
         }
     }
 
-    /**
-     * Pridá objekt do zoznamu a do grafickej plochy.
-     */
     private void addWeatherObject(WeatherObject object) {
         object.setExpirationHandler(this::removeWeatherObject);
 
         weatherObjects.add(object);
         drawingPane.getChildren().add(object);
 
-        /*
-         * Ak je dážď práve zastavený, nová kvapka bude tiež zastavená.
-         */
         if (rainStopped && object instanceof RainDrop) {
             object.stopMoving();
         }
     }
 
-    /**
-     * Odstráni objekt, ktorý opustil plochu.
-     */
     private void removeWeatherObject(WeatherObject object) {
         weatherObjects.remove(object);
         drawingPane.getChildren().remove(object);
     }
 
-    /**
-     * Uvoľnenie animácií.
-     */
     public void dispose() {
         for (WeatherObject object : weatherObjects) {
             object.dispose();
